@@ -15,4 +15,10 @@ public class Controller {
 	public ResponseEntity<HttpStatus> get() {
 		return new ResponseEntity<>(HttpStatus.OK);
 	}
+
+	@GetMapping("/api/english")
+	public ResponseEntity<HttpStatus> get() {
+		// 1. Read the English CSV file
+		// 2. Send the random number and the corresponding letter in JSON format
+	}
 }

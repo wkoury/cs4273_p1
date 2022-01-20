@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Letter Game</title>
+    <script type="text/javascript">
+        var letter;
+        fetch('/api/yoruba').then(res => {
+            res.json().then(json => {
+                letter = json.letter.text;
+                document.getElementById('randomNum').innerText = json.number.text;
+            })
+        });
+
+        window.onload = () => {
+            document.getElementById('submit').addEventListener('click', function () {
+                let userInput = document.getElementById('text').value;
+                console.log("user input: :", userInput)
+                console.log("letter: :", letter)
+                if (userInput == letter) {
+                    console.log('good')
+                    document.getElementById('bad-result').style.visibility = 'hidden';
+                    document.getElementById('good-result').style.visibility = 'visible';
+                } else {
+                    console.log('bad')
+                    document.getElementById('bad-result').style.visibility = 'visible';
+                    document.getElementById('good-result').style.visibility = 'hidden';
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Yoruba Letter Game</h2>
+
+    <div class="randomNumber">
+        <h4><b>Number is</b>:</h4>
+        <div id="randomNum"> <b>...<b></div>
+    </div>
+
+    <p id="bad-result" style="color: red; visibility: hidden;">Incorrect Answer</p>
+    <p id="good-result" style="color: green; visibility: hidden;">Correct!</p>
+
+    <input id="text" name="text">
+    <input id="submit" type="submit" value="Guess">
+</body>
+
+</html>

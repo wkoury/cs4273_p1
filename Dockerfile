@@ -4,8 +4,6 @@ WORKDIR /www
 
 COPY . .
 
-RUN gradle assemble
-
 RUN gradle build
 
 EXPOSE 8080

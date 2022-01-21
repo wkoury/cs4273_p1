@@ -17,8 +17,11 @@ public class Controller {
 	}
 
 	@GetMapping("/api/english")
-	public ResponseEntity<HttpStatus> get() {
+	public ResponseEntity<HttpStatus> getEnglish() {
 		// 1. Read the English CSV file
 		// 2. Send the random number and the corresponding letter in JSON format
+		//
+		// This is filler code to make the compiler happy temporarily
+		return new ResponseEntity<>(HttpStatus.OK);
 	}
 }

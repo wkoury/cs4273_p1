@@ -14,8 +14,8 @@ public class CSVParser {
     }
 
     private void getLetters() {
-        
-        String addressName = "C:/src/main/data/" + fileName;
+
+        String addressName = "src/main/java/com/group11/lettersgame/data/" + fileName;
         try {
             File file = new File(addressName);
             FileReader fileReader = new FileReader(file);
@@ -26,7 +26,7 @@ public class CSVParser {
                 temp = line.split(",");
                     Letter newLetter = new Letter(temp[0], temp[1]);
                     letters.add(newLetter);
-                
+
             }
             bufferedReader.close();
         } catch(Exception e) {

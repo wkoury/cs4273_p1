@@ -2,6 +2,7 @@
 package com.group11.lettersgame;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class CSVParser {
 
@@ -32,6 +33,17 @@ public class CSVParser {
         } catch(Exception e) {
 
         }
+    }
+
+    public Letter getRandomLetter() {
+        int upperBound = letters.size();
+        Random random = new Random();
+        int randomIndex = random.nextInt(upperBound);
+        return letters.get(randomIndex);
+    }
+
+    public ArrayList<Letter> getAlphabet() {
+        return letters;
     }
 
 

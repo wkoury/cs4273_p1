@@ -6,11 +6,12 @@ import java.util.Random;
 
 public class CSVParser {
 
-    String fileName;
-    ArrayList<Letter> letters;
+    private String fileName;
+    private ArrayList<Letter> letters;
 
-    CSVParser(String fileName) {
+    public CSVParser(String fileName) {
         this.fileName = fileName;
+        letters = new ArrayList<Letter>();
         getLetters();
     }
 
@@ -23,6 +24,8 @@ public class CSVParser {
             BufferedReader bufferedReader = new BufferedReader(fileReader);
             String line = "";
             String[] temp;
+            // Skip the headers
+            bufferedReader.readLine();
             while ((line = bufferedReader.readLine()) != null) {
                 temp = line.split(",");
                     Letter newLetter = new Letter(temp[0], temp[1]);
@@ -39,13 +42,13 @@ public class CSVParser {
         int upperBound = letters.size();
         Random random = new Random();
         int randomIndex = random.nextInt(upperBound);
-        return letters.get(randomIndex);
+        Letter ret = letters.get(randomIndex);
+        ret.setIndex(randomIndex);
+        return ret;
     }
 
     public ArrayList<Letter> getAlphabet() {
         return letters;
     }
-
-
 
 }

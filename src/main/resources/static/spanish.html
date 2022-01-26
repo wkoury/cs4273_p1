@@ -7,8 +7,8 @@
         var letter;
         fetch('/api/spanish').then(res => {
             res.json().then(json => {
-                letter = json.letter.text;
-                document.getElementById('randomNum').innerText = json.number.text;
+                letter = json.letter;
+                document.getElementById('randomNum').innerText = json.number;
             })
         });
 

@@ -16,7 +16,7 @@ gradle bootRun
 ```
 
 ## Docker
-There is also a Dockerfile for this repository.
+There is also a Dockerfile for this repository. We are using Docker instead of a shell script to generate a container with the required dependencies.
 
 To build the docker image:
 ```

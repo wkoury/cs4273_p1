@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 class LettersGameApplicationTests {
 
 	final int EN_ALPHABET_LENGTH = 26;
+	final int ES_ALPHABET_LENGTH = 30;
 
 	// this was just me refreshing my knowledge of writing unit tests in java
 	@Test
@@ -69,6 +70,61 @@ class LettersGameApplicationTests {
                         int asciiVal = i + 'A';
                         char myChar = (char) asciiVal;
                         assertEquals(currLetter.getUppercase(), String.valueOf(myChar));
+                }
+        }
+
+        @Test
+        void testSpanishAlphabetLength() {
+                ArrayList<Letter> spanishAlphabet;
+                CSVParser spanishParser = new CSVParser("spanish.csv");
+                spanishAlphabet = spanishParser.getAlphabet();
+
+                assertEquals(spanishAlphabet.size(), ES_ALPHABET_LENGTH);
+        }
+
+        @Test
+        void testSpanishParsingLowercase() {
+		final String[] ES_TEST_ALPHABET = {"a", 
+			"b", "c", "ch", "d", "e", "f", "g", "h", "i", "j", "k",
+			"l", "ll", "m", "n", "ñ", "o", "p", "q", "r", "rr", "s", 
+			"t", "u", "v", "w", "x", "y", "z"};
+                ArrayList<Letter> spanishAlphabet;
+                Letter currLetter;
+		String testLetterStr;
+                CSVParser spanishParser = new CSVParser("spanish.csv");
+                spanishAlphabet = spanishParser.getAlphabet();
+
+                //loop through spanish alphabet arraylist and check that each
+                //letter in the arraylist is correct (based on alphabetical
+                //order)
+                for(int i = 0; i < ES_ALPHABET_LENGTH; ++i) {
+                        currLetter = spanishAlphabet.get(i);
+                        testLetterStr = ES_TEST_ALPHABET[i];
+
+			assertEquals(currLetter.getLowercase(), testLetterStr);
+                }
+        }
+
+	@Test
+        void testSpanishParsingUppercase() {
+                final String[] ES_TEST_ALPHABET = {"A",
+                        "B", "C", "CH", "D", "E", "F", "G", "H", "I", "J", "K",
+                        "L", "LL", "M", "N", "Ñ", "O", "P", "Q", "R", "RR", "S",
+                        "T", "U", "V", "W", "X", "Y", "Z"};
+                ArrayList<Letter> spanishAlphabet;
+                Letter currLetter;
+                String testLetterStr;
+                CSVParser spanishParser = new CSVParser("spanish.csv");
+                spanishAlphabet = spanishParser.getAlphabet();
+
+                //loop through spanish alphabet arraylist and check that each
+                //letter in the arraylist is correct (based on alphabetical
+                //order)
+                for(int i = 0; i < ES_ALPHABET_LENGTH; ++i) {
+                        currLetter = spanishAlphabet.get(i);
+                        testLetterStr = ES_TEST_ALPHABET[i];
+
+                        assertEquals(currLetter.getUppercase(), testLetterStr);
                 }
         }
 

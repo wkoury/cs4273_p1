@@ -14,20 +14,6 @@ class LettersGameApplicationTests {
 	final int EN_ALPHABET_LENGTH = 26;
 	final int ES_ALPHABET_LENGTH = 30;
 
-	// this was just me refreshing my knowledge of writing unit tests in java
-	@Test
-	void twoPlusTwoEqualsFour() {
-		assertEquals(2 + 2, 4);
-	}
-
-	@Test
-	void testLetterGetLowercase() {
-		Letter a = new Letter("a", "A");
-
-		assertEquals(a.getLowercase(), "a");
-		assertEquals(a.getUppercase(), "A");
-	}
-
 	@Test
 	void testEnglishAlphabetLength() {
 		ArrayList<Letter> englishAlphabet;
